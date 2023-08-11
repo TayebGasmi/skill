@@ -22,7 +22,6 @@ public class ApiError {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
     private final Date time = new Date();
     private String message;
-    private String debugMessage;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Set<SubError> subErrors;
     @JsonIgnore

@@ -1,0 +1,14 @@
+version: "2"
+services:
+  #postgres db with volume user postgres and password postgres and db name bpm  and port 5435
+  bpmDb:
+    image: postgres:14.4
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=skill
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+

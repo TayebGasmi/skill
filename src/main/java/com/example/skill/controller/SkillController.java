@@ -1,2 +1,7 @@
-package com.example.skill.controller;public class SkillController {
+package com.example.skill.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class SkillController {
 }

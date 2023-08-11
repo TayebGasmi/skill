@@ -1,4 +1,22 @@
 package com.example.skill.service;
 
-public class IBaseService {
+import com.example.skill.entity.BaseEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+import java.io.Serializable;
+import java.util.List;
+
+public interface IBaseService<T extends BaseEntity, I extends Serializable> {
+    T add(T t);
+
+    T update(T t);
+
+    void deleteByID(I id);
+
+    T findByID(I id);
+
+    Page<T> findAll(Pageable pageable);
+
+    List<T> saveAll(Iterable<T> entities);
 }

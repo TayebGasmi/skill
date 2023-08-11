@@ -1,5 +1,4 @@
-package com.example.skill.service.impl;
-
+package com.example.skill.service;
 
 
 public interface IOptionService {

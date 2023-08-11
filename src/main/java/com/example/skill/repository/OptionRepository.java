@@ -1,8 +1,8 @@
 package com.example.skill.repository;
 
-import com.example.skill.entity.Quiz;
+import com.example.skill.entity.Option;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface QuizRepository extends BaseRepository<Quiz,Long> {
+public interface OptionRepository extends BaseRepository<Option, Long> {
 }

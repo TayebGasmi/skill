@@ -1,11 +1,14 @@
 package com.example.skill.mapper;
 
-import com.example.skill.dto.SkillDto;
-import com.example.skill.entity.Skill;
+import com.example.skill.dto.OptionDto;
+import com.example.skill.entity.Option;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
-@Mapper
-public interface OptionMapper {
-    Skill skillDtoToSkill(SkillDto skillDto);
-    SkillDto skillToSkillDto(Skill skill);
+
+@Mapper(componentModel = "jsr330")
+public interface OptionMapper  {
+
+
+    Option toEntity(OptionDto optionDto);
 }

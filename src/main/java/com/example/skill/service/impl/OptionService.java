@@ -1,22 +1,15 @@
 package com.example.skill.service.impl;
 
-import com.example.skill.entity.Skill;
-import com.example.skill.repository.BaseRepository;
-import com.example.skill.repository.SkillRepository;
-import com.example.skill.service.ISkillService;
+import com.example.skill.entity.Option;
+import com.example.skill.repository.OptionRepository;
+import com.example.skill.service.IOptionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 @RequiredArgsConstructor
-public class SkillService extends BaseService<Skill,Long> implements ISkillService {
-    private final SkillRepository skillRepository;
+public class OptionService extends BaseService<Option, Long> implements IOptionService {
+    private final OptionRepository optionRepository;
 
-    @Override
-    public List<Skill> findAllByUserId(Long userId) {
-        return skillRepository.findAllByUserId(userId);
 
-    }
 }
