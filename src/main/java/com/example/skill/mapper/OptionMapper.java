@@ -7,8 +7,7 @@ import org.mapstruct.ReportingPolicy;
 
 
 @Mapper(componentModel = "jsr330", unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface OptionMapper {
+public interface OptionMapper extends BaseMapper<Option,OptionDto> {
 
 
-    Option toEntity(OptionDto optionDto);
 }

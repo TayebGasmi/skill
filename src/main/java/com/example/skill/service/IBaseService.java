@@ -7,10 +7,10 @@ import org.springframework.data.domain.Pageable;
 import java.io.Serializable;
 import java.util.List;
 
-public interface IBaseService<T extends BaseEntity, I extends Serializable> {
-    T add(T t);
+public interface IBaseService<T extends BaseEntity, I extends Serializable,D> {
+    T add(D dto);
 
-    T update(T t);
+    T update(D dto,I id);
 
     void deleteByID(I id);
 
