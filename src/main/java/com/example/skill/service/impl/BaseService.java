@@ -13,21 +13,22 @@ import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
-public abstract class BaseService<T extends BaseEntity, I extends Serializable,D> implements IBaseService<T, I,D> {
+public abstract class BaseService<T extends BaseEntity, I extends Serializable, D> implements IBaseService<T, I, D> {
     @Autowired
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     private BaseRepository<T, I> repository;
     @Autowired
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     private BaseMapper<T, D> mapper;
+
     @Override
     public T add(D dto) {
         return repository.save(mapper.toEntity(dto));
     }
 
     @Override
-    public T update(D dto,I id) {
-        T existingEntity = findByID( id);
+    public T update(D dto, I id) {
+        T existingEntity = findByID(id);
         T updatedEntity = mapper.toEntity(dto);
         updatedEntity.setId(existingEntity.getId());
         return repository.save(updatedEntity);

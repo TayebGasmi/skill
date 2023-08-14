@@ -13,10 +13,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
 
-public abstract class BaseController<T extends BaseEntity,I extends Serializable,D> {
-   @Autowired
-   @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
-   private  BaseService<T,I,D> baseService;
+public abstract class BaseController<T extends BaseEntity, I extends Serializable, D> {
+    @Autowired
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
+    private BaseService<T, I, D> baseService;
+
     @PostMapping
     public ResponseEntity<T> save(@RequestBody @Valid D dto) {
         return new ResponseEntity<>(baseService.add(dto), HttpStatus.CREATED);
@@ -31,7 +32,7 @@ public abstract class BaseController<T extends BaseEntity,I extends Serializable
     public ResponseEntity<T> update(@PathVariable I id, @Valid @RequestBody D dto) {
 
 
-        return new ResponseEntity<>(baseService.update(dto,id), HttpStatus.OK);
+        return new ResponseEntity<>(baseService.update(dto, id), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
@@ -44,5 +45,5 @@ public abstract class BaseController<T extends BaseEntity,I extends Serializable
     public ResponseEntity<Page<T>> getAllOptionsWithPagination(@PageableDefault(size = 10, page = 0) Pageable pageable) {
         return new ResponseEntity<>(baseService.findAll(pageable), HttpStatus.OK);
     }
-    
+
 }

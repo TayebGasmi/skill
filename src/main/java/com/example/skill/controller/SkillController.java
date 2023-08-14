@@ -7,5 +7,5 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/skill")
-public class SkillController extends BaseController<Skill,Long, SkillDto> {
+public class SkillController extends BaseController<Skill, Long, SkillDto> {
 }

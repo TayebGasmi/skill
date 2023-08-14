@@ -7,5 +7,5 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/quizRate")
-public class QuizRateController extends BaseController<QuizRate,Long, QuizRateDto>  {
+public class QuizRateController extends BaseController<QuizRate, Long, QuizRateDto> {
 }
