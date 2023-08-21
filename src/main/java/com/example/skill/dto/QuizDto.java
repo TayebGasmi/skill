@@ -1,12 +1,24 @@
 package com.example.skill.dto;
 
-import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
+/**
+ * Represents a quiz with its associated name and description.
+ */
 @Data
 public class QuizDto {
-    @NotEmpty
+    /**
+     * The name of the quiz.
+     * This field cannot be null or empty.
+     */
+    @NotBlank(message = "Quiz name must not be empty.")
     private String name;
-    @NotEmpty
+
+    /**
+     * The description of the quiz.
+     * This field cannot be null or empty.
+     */
+    @NotBlank(message = "Quiz description must not be empty.")
     private String description;
 }

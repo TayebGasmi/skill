@@ -1,5 +1,7 @@
 package com.example.skill.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
@@ -15,7 +17,12 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder(toBuilder = true)
 @Entity
 public class Option extends BaseEntity {
+    @Column(nullable = false)
     private String optionText;
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne()
+
     private Question question;
+    @Column(nullable = false)
+    private boolean isCorrect;
 }

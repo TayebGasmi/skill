@@ -20,16 +20,20 @@ spring:
     password: postgres
     url: jdbc:postgresql://localhost:5432/skill
     username: postgres
+
   #jpa
   jpa:
+    show-sql: true
     hibernate:
-      ddl-auto: update
+      - ddl-auto: update
+      - format-sql: true
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         jdbc:
           lob:
-            non_contextual_creation: true
+            non_contextual_creation: d
+
 #eurka
 eureka:
   client:

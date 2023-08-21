@@ -5,14 +5,16 @@ import com.example.skill.error.EntityNotFoundException;
 import com.example.skill.mapper.BaseMapper;
 import com.example.skill.repository.BaseRepository;
 import com.example.skill.service.IBaseService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
-import java.util.List;
+import java.util.Collection;
 
+@Transactional
 public abstract class BaseService<T extends BaseEntity, I extends Serializable, D> implements IBaseService<T, I, D> {
     @Autowired
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
@@ -46,9 +48,10 @@ public abstract class BaseService<T extends BaseEntity, I extends Serializable, 
     }
 
     @Override
-    public List<T> saveAll(Iterable<T> entities) {
+    public Collection<T> saveAll(Collection<T> entities) {
         return repository.saveAll(entities);
     }
+
 
     @Override
     public Page<T> findAll(Pageable pageable) {

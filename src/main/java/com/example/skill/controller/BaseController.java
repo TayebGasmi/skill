@@ -9,10 +9,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
 
+@Validated
 public abstract class BaseController<T extends BaseEntity, I extends Serializable, D> {
     @Autowired
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
@@ -36,13 +38,13 @@ public abstract class BaseController<T extends BaseEntity, I extends Serializabl
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteOption(@PathVariable I id) {
+    public ResponseEntity<Void> deleteById(@PathVariable I id) {
         baseService.deleteByID(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @GetMapping
-    public ResponseEntity<Page<T>> getAllOptionsWithPagination(@PageableDefault(size = 10, page = 0) Pageable pageable) {
+    public ResponseEntity<Page<T>> getAllWithPagination(@PageableDefault(size = 10, page = 0) Pageable pageable) {
         return new ResponseEntity<>(baseService.findAll(pageable), HttpStatus.OK);
     }
 

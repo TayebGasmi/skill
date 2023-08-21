@@ -5,7 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
 
 public interface IBaseService<T extends BaseEntity, I extends Serializable, D> {
     T add(D dto);
@@ -18,5 +18,7 @@ public interface IBaseService<T extends BaseEntity, I extends Serializable, D> {
 
     Page<T> findAll(Pageable pageable);
 
-    List<T> saveAll(Iterable<T> entities);
+    Collection<T> saveAll(Collection<T> entities);
+
+
 }
