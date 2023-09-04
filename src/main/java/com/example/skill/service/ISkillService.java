@@ -1,15 +1,11 @@
 package com.example.skill.service;
 
 import com.example.skill.entity.Skill;
-
-import java.util.Collection;
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface ISkillService {
-    List<Skill> findAllByUserId(Long userId);
 
-    Skill assignSkillToUser(Long userId, Long skillId);
-
-    Collection<Skill> assignAllSkillToUser(Long userId, Collection<Skill> skills);
+    Page<Skill> findByName(String name, Pageable pageable);
 
 }

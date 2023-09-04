@@ -15,7 +15,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Constraint(validatedBy = OptionListValidator.class)
 @Documented
 public @interface OptionList {
-    String message() default "{at least include 2 options  and one option at least should be correct by correct }";
+    String message() default "{at least include 2 options  and one option at least should be correct by correct and all option text should be unique }";
 
     Class<?>[] groups() default {};
 

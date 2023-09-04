@@ -1,11 +1,11 @@
 package com.example.skill.repository;
 
 import com.example.skill.entity.Skill;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository
 public interface SkillRepository extends BaseRepository<Skill, Long> {
-    List<Skill> findAllByUserId(Long userId);
+    Page<Skill> findByNameContainingIgnoreCase(String name, Pageable pageable);
 }

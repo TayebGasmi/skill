@@ -26,10 +26,10 @@ public class Quiz extends BaseEntity {
     private String description;
     @ManyToOne()
     private Skill skill;
-    @OneToMany(mappedBy = "quiz")
+    @OneToMany(mappedBy = "quiz", orphanRemoval = true)
     @JsonIgnore
     private Set<Question> questions = new HashSet<>();
-    @OneToMany(mappedBy = "quiz")
+    @OneToMany(mappedBy = "quiz", orphanRemoval = true)
     @JsonIgnore
     private Set<QuizRate> quizRates = new HashSet<>();
 

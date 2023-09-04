@@ -23,11 +23,7 @@ public class Skill extends BaseEntity {
     @Column(nullable = false)
     private String name;
     private String description;
-    @Column(nullable = false)
-    private Long userId;
     @JsonIgnore
-    @OneToMany(mappedBy = "skill")
+    @OneToMany(mappedBy = "skill", orphanRemoval = true)
     private Set<Quiz> quizzes = new HashSet<>();
-
-
 }

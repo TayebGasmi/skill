@@ -18,7 +18,7 @@ public class QuestionController extends BaseController<Question, Long, QuestionD
 
 
     @PostMapping("/quiz/{quizId}")
-    public ResponseEntity<?> addQuestionToQuizWithOptions(@RequestBody @Valid QuestionWithOptionsDto questionOptionsDto, @PathVariable Long quizId) {
+    public ResponseEntity<Question> addQuestionToQuizWithOptions(@RequestBody @Valid QuestionWithOptionsDto questionOptionsDto, @PathVariable Long quizId) {
         return new ResponseEntity<>(questionService.addQuestionToQuizWithOptions(questionOptionsDto, quizId), HttpStatus.CREATED);
     }
 }

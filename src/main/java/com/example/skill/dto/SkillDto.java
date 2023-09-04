@@ -20,9 +20,6 @@ public class SkillDto {
      */
     private String description;
 
-    /**
-     * The ID of the user associated with the skill.
-     */
-    private Long userId;
+
 }
 

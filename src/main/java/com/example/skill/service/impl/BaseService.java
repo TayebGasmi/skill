@@ -30,15 +30,16 @@ public abstract class BaseService<T extends BaseEntity, I extends Serializable, 
 
     @Override
     public T update(D dto, I id) {
-        T existingEntity = findByID(id);
-        T updatedEntity = mapper.toEntity(dto);
-        updatedEntity.setId(existingEntity.getId());
-        return repository.save(updatedEntity);
+        T entity = findByID(id);
+        mapper.toEntityUpdate(dto, entity);
+        return repository.save(entity);
     }
 
     @Override
     public void deleteByID(I id) {
+        T entity = findByID(id);
         repository.deleteById(id);
+
     }
 
     @Override

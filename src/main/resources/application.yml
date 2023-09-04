@@ -7,7 +7,7 @@ management:
 server:
   port: 9000
   servlet:
-    context-path: /api/skill
+    context-path: /api
 spring:
   application:
     name: skill-service
@@ -18,31 +18,30 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     password: postgres
-    url: jdbc:postgresql://localhost:5432/skill
+    url: jdbc:postgresql://localhost:5433/skill
     username: postgres
 
   #jpa
   jpa:
     show-sql: true
     hibernate:
-      - ddl-auto: update
-      - format-sql: true
+      ddl-auto: update
+      format_sql: true
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         jdbc:
           lob:
-            non_contextual_creation: d
-
+            non_contextual_creation: true
 #eurka
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
-      registry-fetch-interval-seconds: 5
-      instance-info-replication-interval-seconds: 5
-  instance:
-    prefer-ip-address: true
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka
+#      registry-fetch-interval-seconds: 5
+#      instance-info-replication-interval-seconds: 5
+#  instance:
+#    prefer-ip-address: true
 
 
 

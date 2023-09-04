@@ -1,5 +1,7 @@
 package com.example.skill.mapper;
 
+import org.mapstruct.MappingTarget;
+
 /**
  * A generic interface for mapping between entities and DTOs.
  *
@@ -14,5 +16,7 @@ public interface BaseMapper<T, D> {
      * @return The corresponding entity.
      */
     T toEntity(D d);
+
+    void toEntityUpdate(D d, @MappingTarget T t);
 
 }

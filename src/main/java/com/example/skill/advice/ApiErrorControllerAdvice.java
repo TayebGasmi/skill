@@ -51,7 +51,7 @@ public class ApiErrorControllerAdvice extends ResponseEntityExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiError> handleException(Exception ex) {
 
-        log.error("error", ex);
+        log.error("error {}", ex.getMessage(), ex);
         return createErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, ex);
     }
 }
