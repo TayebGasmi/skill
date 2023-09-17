@@ -19,6 +19,7 @@ public interface IBaseService<T extends BaseEntity, I extends Serializable, D> {
     Page<T> findAll(Pageable pageable);
 
     Collection<T> saveAll(Collection<T> entities);
+    void deleteAll(Collection<T> entities);
 
 
 }

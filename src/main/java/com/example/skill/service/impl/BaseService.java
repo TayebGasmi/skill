@@ -36,6 +36,11 @@ public abstract class BaseService<T extends BaseEntity, I extends Serializable, 
     }
 
     @Override
+    public void deleteAll(Collection<T> entities) {
+         repository.deleteAll(entities);
+    }
+
+    @Override
     public void deleteByID(I id) {
         T entity = findByID(id);
         repository.deleteById(id);

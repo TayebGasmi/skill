@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 @Slf4j
 public abstract class BaseController<T extends BaseEntity, I extends Serializable, D> {
@@ -22,6 +23,7 @@ public abstract class BaseController<T extends BaseEntity, I extends Serializabl
 
     @PostMapping
     public ResponseEntity<T> save(@RequestBody @Valid D dto) {
+
         return new ResponseEntity<>(baseService.add(dto), HttpStatus.CREATED);
     }
 
@@ -46,6 +48,11 @@ public abstract class BaseController<T extends BaseEntity, I extends Serializabl
     @GetMapping
     public ResponseEntity<Page<T>> getAllWithPagination(@PageableDefault(size = 10, page = 0) Pageable pageable) {
         return new ResponseEntity<>(baseService.findAll(pageable), HttpStatus.OK);
+    }
+    @PutMapping("/delete")
+    public ResponseEntity<Void> deleteAll(@RequestBody Collection<T> entities) {
+        baseService.deleteAll(entities);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 }

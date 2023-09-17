@@ -18,16 +18,14 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     password: postgres
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: pgadmin
+    url: jdbc:postgresql://localhost:5432/skill
+    username: postgres
 
   #jpa
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: update
-      format_sql: true
-    properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         jdbc:
@@ -42,7 +40,7 @@ spring:
 #      instance-info-replication-interval-seconds: 5
 #  instance:
 #    prefer-ip-address: true
-
+debug:
 
 
 
