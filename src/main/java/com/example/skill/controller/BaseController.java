@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 
 @Slf4j
 public abstract class BaseController<T extends BaseEntity, I extends Serializable, D> {
@@ -53,6 +54,10 @@ public abstract class BaseController<T extends BaseEntity, I extends Serializabl
     public ResponseEntity<Void> deleteAll(@RequestBody Collection<T> entities) {
         baseService.deleteAll(entities);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+    @GetMapping("/all")
+    public ResponseEntity<List<T>> getAll(){
+        return new ResponseEntity<>(baseService.getAll(),HttpStatus.OK);
     }
 
 }

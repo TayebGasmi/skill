@@ -1,10 +1,7 @@
 package com.example.skill.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,5 +24,10 @@ public class Skill extends BaseEntity {
     @JsonIgnore
     @OneToMany(mappedBy = "skill", orphanRemoval = true)
     private Set<Quiz> quizzes = new HashSet<>();
+    @ManyToOne()
+    private Domain domain;
+    @ManyToOne
+    private Activity activity;
+
 
 }

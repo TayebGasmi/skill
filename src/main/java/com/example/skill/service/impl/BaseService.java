@@ -13,12 +13,19 @@ import org.springframework.data.domain.Pageable;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.Collection;
+import java.util.List;
 
 @Transactional
 public abstract class BaseService<T extends BaseEntity, I extends Serializable, D> implements IBaseService<T, I, D> {
     @Autowired
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     private BaseRepository<T, I> repository;
+
+    @Override
+    public List<T> getAll() {
+        return repository.findAll();
+    }
+
     @Autowired
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     private BaseMapper<T, D> mapper;

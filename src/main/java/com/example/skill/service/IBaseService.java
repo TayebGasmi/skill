@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 
 public interface IBaseService<T extends BaseEntity, I extends Serializable, D> {
     T add(D dto);
@@ -20,6 +21,7 @@ public interface IBaseService<T extends BaseEntity, I extends Serializable, D> {
 
     Collection<T> saveAll(Collection<T> entities);
     void deleteAll(Collection<T> entities);
+    List<T> getAll();
 
 
 }
