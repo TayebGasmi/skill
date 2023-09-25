@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 
 public interface ISkillService {
 
-    Page<Skill> findByName(String name, Pageable pageable);
+    Page<Skill> findByName(String name,String activity,String domain, Pageable pageable);
     Skill addWithDomainAndActivity(SkillDto skillDto, Long domainId, Long activityId);
 
 }

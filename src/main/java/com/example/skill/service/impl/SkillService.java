@@ -21,8 +21,8 @@ public class SkillService extends BaseService<Skill, Long, SkillDto> implements 
     private final SkillMapper skillMapper;
 
     @Override
-    public Page<Skill> findByName(String name, Pageable pageable) {
-        return skillRepository.findByNameContainingIgnoreCase(name, pageable);
+    public Page<Skill> findByName(String name,String activity,String domain ,Pageable pageable) {
+        return skillRepository.findByActivityNameOrDomainNameOrSkillName(activity,domain,name, pageable);
     }
 
     @Override

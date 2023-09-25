@@ -8,6 +8,8 @@ import com.example.skill.mapper.SkillUserMapper;
 import com.example.skill.repository.UserSkillRepository;
 import com.example.skill.service.IUserSkillService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,7 +35,19 @@ public class UserSkillService implements IUserSkillService {
     }
 
     @Override
-    public List<ISkillUserResponse> getSkillUser(String userId) {
-        return userSkillRepository.findSkillUserResponsesByUserId(userId);
+    public Page<ISkillUserResponse> getSkillUser(String userId, Pageable pageable) {
+        return userSkillRepository.findSkillUserResponsesByUserId(userId, pageable);
     }
+
+    @Override
+    public void delete(Long id) {
+        userSkillRepository.deleteById(id);
+    }
+
+    @Override
+    public List<UserSkill> findAll() {
+        return userSkillRepository.findAll();
+    }
+
+
 }
