@@ -37,6 +37,14 @@ spring:
         jdbc:
           lob:
             non_contextual_creation: true
+  eureka:
+    client:
+      service-url:
+        defaultZone: http://localhost:8761/eureka
+        registry-fetch-interval-seconds: 5
+        instance-info-replication-interval-seconds: 5
+    instance:
+      prefer-ip-address: true
 
 debug:
     enabled: true
